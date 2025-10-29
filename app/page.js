@@ -146,25 +146,23 @@ export default function Home() {
             />
           </div>
           <div className="order-1 md:order-2">
-            <span className="text-[#C97A3C] text-sm font-semibold tracking-wider uppercase mb-3 block">
-              Sacred Heritage
-            </span>
-            <h2 className="text-4xl font-bold text-[#5A3825] mb-6 leading-tight">
-              The Divine Treasury of Lord Kuber
-            </h2>
-            <p className="text-lg text-gray-700 leading-relaxed mb-4">
-              Lord Shri Badrinath&apos;s treasurer, Shri Kuber Bhandari, the treasurer of the gods, 
-              resides in this divine Kuber temple in Pandukeshwar during winters.
-            </p>
-            <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              Located near Yog Badri, one of the Panch Badri, this sacred temple sits at 
-              the base of the Balkunwar peak at an altitude of 4,600 meters.
-            </p>
-            <Link href="/about">
-              <button className="bg-[#C97A3C] hover:bg-[#B5682B] text-white px-6 py-3 rounded font-semibold transition-all duration-300">
-                Discover More
-              </button>
-            </Link>
+           <span className="text-[#C97A3C] text-sm font-semibold tracking-wider uppercase mb-3 block">
+        {t("heritageSection.tagline")}
+      </span>
+      <h2 className="text-4xl font-bold text-[#5A3825] mb-6 leading-tight">
+        {t("heritageSection.title")}
+      </h2>
+      <p className="text-lg text-gray-700 leading-relaxed mb-4">
+        {t("heritageSection.paragraph1")}
+      </p>
+      <p className="text-lg text-gray-700 leading-relaxed mb-6">
+        {t("heritageSection.paragraph2")}
+      </p>
+      <Link href="/about">
+        <button className="bg-[#C97A3C] hover:bg-[#B5682B] text-white px-6 py-3 rounded font-semibold transition-all duration-300">
+          {t("heritageSection.button")}
+        </button>
+      </Link>
           </div>
         </motion.div>
       </section>
@@ -180,11 +178,11 @@ export default function Home() {
             className="text-center mb-12"
           >
             <h2 className="text-4xl font-bold text-spiritual-green mb-4 font-quicksand">
-              Temple Gallery
-            </h2>
-            <p className="text-gray-600 text-lg">
-              Explore the divine beauty of KuberJi Mandir
-            </p>
+        {t("gallerySection.title")}
+      </h2>
+      <p className="text-gray-600 text-lg">
+        {t("gallerySection.description")}
+      </p>
           </motion.div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
@@ -216,7 +214,7 @@ export default function Home() {
           <div className="text-center">
             <Link href="/media">
               <button className="border-2 border-spiritual-gold text-spiritual-gold hover:bg-spiritual-gold hover:text-white px-8 py-3 rounded font-semibold transition-all duration-300">
-                View Full Gallery
+                {t("gallerySection.button")}
               </button>
             </Link>
           </div>
@@ -234,14 +232,14 @@ export default function Home() {
             className="text-center mb-16"
           >
             <span className="text-[#C97A3C] text-sm font-semibold tracking-wider uppercase mb-3 block">
-              What We Offer
-            </span>
-            <h2 className="text-4xl font-bold text-[#5A3825] mb-4">
-              Temple Services
-            </h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              Participate in sacred rituals and receive divine blessings
-            </p>
+            {t("servicesSection.tagline")}
+          </span>
+          <h2 className="text-4xl font-bold text-[#5A3825] mb-4">
+            {t("servicesSection.title")}
+          </h2>
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            {t("servicesSection.description")}
+          </p>
           </motion.div>
         
           <div className="grid md:grid-cols-3 gap-8">
@@ -322,29 +320,28 @@ export default function Home() {
 
       {/* Donation CTA */}
       <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <span className="text-[#C97A3C] text-sm font-semibold tracking-wider uppercase mb-3 block">
-              Make a Difference
-            </span>
-            <h2 className="text-4xl font-bold mb-6 text-[#5A3825]">
-              Support Our Temple
-            </h2>
-            <p className="text-xl mb-8 text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              Your generous donations help us maintain the temple, conduct sacred ceremonies, 
-              and serve our devotees with love and devotion.
-            </p>
-            <button className="bg-[#C97A3C] hover:bg-[#B5682B] text-white px-10 py-4 rounded text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg">
-              Make a Donation
-            </button>
-          </motion.div>
-        </div>
-      </section>
+      <div className="max-w-4xl mx-auto px-4 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <span className="text-[#C97A3C] text-sm font-semibold tracking-wider uppercase mb-3 block">
+            {t("donation.tagline")}
+          </span>
+          <h2 className="text-4xl font-bold mb-6 text-[#5A3825]">
+            {t("donation.title")}
+          </h2>
+          <p className="text-xl mb-8 text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            {t("donation.description")}
+          </p>
+          <button className="bg-[#C97A3C] hover:bg-[#B5682B] text-white px-10 py-4 rounded text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg">
+            {t("donation.button")}
+          </button>
+        </motion.div>
+      </div>
+    </section>
 
       <Footer />
     </div>

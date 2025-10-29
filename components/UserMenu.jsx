@@ -118,7 +118,7 @@ export default function UserMenu({ user, onLogout, language = 'en', t }) {
                 className="w-full text-left px-4 py-2 hover:bg-sandalwood/5 flex items-center gap-2 text-sm"
               >
                 <UserIcon className="h-4 w-4 text-sandalwood" />
-                {t ? t('nav.signup') : 'Sign Up'}
+                {t ? t('auth.signUp') : 'Sign Up'}
               </button>
             </>
           )}
