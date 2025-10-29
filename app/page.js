@@ -12,6 +12,24 @@ export default function Home() {
   const { language } = useLanguage();
   const t = (key) => getTranslation(language, key);
 
+  const services = [
+    {
+      title: t("serviceCards.dailyRituals.title"),
+      desc: t("serviceCards.dailyRituals.desc"),
+      img: "/images/sitting.jpeg",
+    },
+    {
+      title: t("serviceCards.abhishekam.title"),
+      desc: t("serviceCards.abhishekam.desc"),
+      img: "/images/milkbath2.jpeg",
+    },
+    {
+      title: t("serviceCards.prasadSeva.title"),
+      desc: t("serviceCards.prasadSeva.desc"),
+      img: "/images/carryin2.jpeg",
+    },
+  ];
+
   return (
     <div className="bg-heritage-cream">
       <MyNav />
@@ -243,50 +261,34 @@ export default function Home() {
           </motion.div>
         
           <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Daily Rituals",
-                desc: "Morning and evening aarti with sacred chants",
-                img: "/images/sitting.jpeg",
-              },
-              {
-                title: "Abhishekam",
-                desc: "Sacred bath ceremony for Lord Kuber",
-                img: "/images/milkbath2.jpeg",
-              },
-              {
-                title: "Prasad Seva",
-                desc: "Distribution of blessed offerings",
-                img: "/images/carryin2.jpeg",
-              },
-            ].map((service, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: idx * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group"
-              >
-                <div className="relative h-56 overflow-hidden">
-                  <Image
-                    src={service.img}
-                    alt={service.title}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold text-spiritual-green mb-3">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">{service.desc}</p>
-                </div>
-              </motion.div>
-            ))}
+      {services.map((service, idx) => (
+        <motion.div
+          key={idx}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: idx * 0.1 }}
+          viewport={{ once: true }}
+          className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group"
+        >
+          <div className="relative h-56 overflow-hidden">
+            <Image
+              src={service.img}
+              alt={service.title}
+              fill
+              className="object-cover group-hover:scale-110 transition-transform duration-500"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
           </div>
+          <div className="p-6">
+            <h3 className="text-2xl text-center font-bold text-spiritual-green mb-3">
+              {service.title}
+            </h3>
+            <p className="text-gray-600 text-center leading-relaxed">{service.desc}</p>
+          </div>
+        </motion.div>
+      ))}
+    </div>
         </div>
       </section>
 
@@ -308,12 +310,12 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center text-white max-w-3xl"
           >
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              Join Our Sacred Community
-            </h2>
-            <p className="text-xl text-gray-100 mb-8">
-              Experience divine blessings and spiritual growth
-            </p>
+           <h2 className="text-3xl md:text-5xl font-bold mb-6">
+  {t("communitySection.title")}
+</h2>
+<p className="text-xl text-gray-100 mb-8">
+  {t("communitySection.desc")}
+</p>
           </motion.div>
         </div>
       </section>

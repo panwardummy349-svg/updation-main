@@ -21,7 +21,7 @@ const Footer = () => {
             </h3>
             <div className="space-y-3">
               <div className="flex items-start gap-3">
-                <MapPin className="mt-1 flex-shrink-0 text-sandalwood" size={18} />
+                <MapPin className="mt-1 flex-shrink-0 text-ivory" size={18} />
                 <p className="font-light text-sm text-ivory/90" style={{ fontFamily: language === 'hi' ? 'Noto Serif Devanagari, serif' : 'inherit' }}>
                   {language === 'hi' 
                     ? 'कुबेरजी मंदिर, पांडुकेश्वर, बद्रीनाथ के पास, उत्तराखंड'
@@ -29,17 +29,17 @@ const Footer = () => {
                 </p>
               </div>
               <div className="flex items-center gap-3">
-                <Phone className="flex-shrink-0 text-sandalwood" size={18} />
+                <Phone className="flex-shrink-0 text-ivory" size={18} />
                 <p className="font-light text-sm text-ivory/90">(123) 456-7890</p>
               </div>
               <div className="flex items-center gap-3">
-                <Mail className="flex-shrink-0 text-sandalwood" size={18} />
+                <Mail className="flex-shrink-0 text-ivory" size={18} />
                 <p className="font-light text-sm text-ivory/90">info@kuberjitemple.org</p>
               </div>
             </div>
             
             <div className="mt-6">
-              <h4 className="font-light text-sm text-sandalwood mb-3" style={{ fontFamily: language === 'hi' ? 'Noto Serif Devanagari, serif' : 'inherit' }}>
+              <h4 className="font-light text-sm text-ivory mb-3" style={{ fontFamily: language === 'hi' ? 'Noto Serif Devanagari, serif' : 'inherit' }}>
                 {language === 'hi' ? 'हमें फॉलो करें' : 'Follow Us'}
               </h4>
               <div className="flex space-x-4">
@@ -124,7 +124,7 @@ const Footer = () => {
             </div>
             
             <div className="mt-6">
-              <h4 className="font-light text-sm text-sandalwood mb-2" style={{ fontFamily: language === 'hi' ? 'Noto Serif Devanagari, serif' : 'inherit' }}>
+              <h4 className="font-light text-sm text-ivory mb-2" style={{ fontFamily: language === 'hi' ? 'Noto Serif Devanagari, serif' : 'inherit' }}>
                 {language === 'hi' ? 'विशेष आरती समय' : 'Special Aarti Times'}
               </h4>
               <p className="font-light text-sm text-ivory/90" style={{ fontFamily: language === 'hi' ? 'Noto Serif Devanagari, serif' : 'inherit' }}>
