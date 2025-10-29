@@ -10,6 +10,7 @@ import {
   MobileNavToggle,
   MobileNavMenu,
 } from "@/components/ui/resizable-navbar";
+import UserMenu from "@/components/UserMenu";
 import { HeartIcon, UserIcon, LogOutIcon, LogInIcon, VideoIcon, CalendarIcon, ShoppingBagIcon } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
@@ -17,6 +18,7 @@ import { isAuthenticated, getSession, clearSession } from "@/lib/auth";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { getTranslation } from "@/lib/translations";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+
 
 
 export default function MyNav() {
@@ -85,57 +87,18 @@ export default function MyNav() {
         <NavBody>
           <NavbarLogo />
           <NavItems items={navItems} />
-          <div className="flex items-center gap-3">
-            {/* Language Switcher */}
-            <LanguageSwitcher />
-            
-            <NavbarButton className="flex items-center justify-center bg-sandalwood hover:bg-deep-brown text-ivory border-sandalwood" variant="primary">
+
+            <div className="grid grid-cols-2 gap-4 items-center">
+              <UserMenu user={user} onLogout={handleLogout} t={t} language={language} />
+
+              <NavbarButton className="flex items-center justify-center bg-sandalwood hover:bg-deep-brown text-ivory border-sandalwood" variant="primary">
               <HeartIcon size={16} fill="currentColor" className="mr-2" />
               {t('nav.donate')}
             </NavbarButton>
-            {user ? (
-              <>
-                <NavbarButton 
-                  onClick={() => router.push('/my-bookings')}
-                  className="flex items-center justify-center border-sandalwood/30 text-deep-brown hover:bg-sandalwood/5" 
-                  variant="outline"
-                >
-                  <CalendarIcon size={16} className="mr-2" />
-                  {language === 'en' ? 'My Bookings' : 'मेरी बुकिंग'}
-                </NavbarButton>
-                <NavbarButton 
-                  onClick={() => router.push('/my-aartis')}
-                  className="flex items-center justify-center border-sandalwood/30 text-deep-brown hover:bg-sandalwood/5" 
-                  variant="outline"
-                >
-                  <VideoIcon size={16} className="mr-2" />
-                  {t('nav.myAartis')}
-                </NavbarButton>
-                <div className="flex items-center gap-2">
-                  <div className="hidden lg:flex items-center gap-2 px-3 py-2 bg-sandalwood/5 rounded-sm border border-sandalwood/15">
-                    <UserIcon size={16} className="text-sandalwood" />
-                    <span className="text-sm font-light text-deep-brown">{user.name}</span>
-                  </div>
-                  <button
-                    onClick={handleLogout}
-                    className="p-2 hover:bg-red-50 rounded-sm transition-colors text-red-600"
-                    title={t('nav.logout')}
-                  >
-                    <LogOutIcon size={18} />
-                  </button>
-                </div>
-              </>
-            ) : (
-              <NavbarButton 
-                onClick={() => router.push('/auth/login')}
-                className="flex items-center justify-center border-sandalwood/30 text-deep-brown hover:bg-sandalwood/5" 
-                variant="outline"
-              >
-                <LogInIcon size={16} className="mr-2" />
-                {t('nav.login')}
-              </NavbarButton>
-            )}
-          </div>
+              
+            </div>
+        
+         
         </NavBody>
 
         {/* Mobile Navigation */}
@@ -157,67 +120,14 @@ export default function MyNav() {
                 <span className="block">{item.name}</span>
               </a>
             ))}
-            <div className="flex w-full flex-col gap-4 mt-4">
-              {/* Language Switcher in Mobile */}
-              <div className="flex justify-center">
-                <LanguageSwitcher />
-              </div>
+            <div className="grid grid-cols-2 gap-4 items-center">
+              <UserMenu user={user} onLogout={handleLogout} t={t} language={language} />
+
+              <NavbarButton className="flex items-center justify-center bg-sandalwood hover:bg-deep-brown text-ivory border-sandalwood" variant="primary">
+              <HeartIcon size={16} fill="currentColor" className="mr-2" />
+              {t('nav.donate')}
+            </NavbarButton>
               
-              <NavbarButton
-                onClick={() => setIsMobileMenuOpen(false)}
-                variant="primary"
-                className="w-full bg-sandalwood hover:bg-deep-brown text-ivory">
-                <HeartIcon size={16} fill="currentColor" className="mr-2 inline" />
-                {t('nav.donate')}
-              </NavbarButton>
-              {user ? (
-                <>
-                  <div className="flex items-center gap-2 px-4 py-3 bg-sandalwood/5 rounded-sm border border-sandalwood/15">
-                    <UserIcon size={16} className="text-sandalwood" />
-                    <span className="text-sm font-light text-deep-brown">{user.name}</span>
-                  </div>
-                  <NavbarButton
-                    onClick={() => {
-                      setIsMobileMenuOpen(false);
-                      router.push('/my-bookings');
-                    }}
-                    variant="outline"
-                    className="w-full border-sandalwood/30 text-deep-brown hover:bg-sandalwood/5">
-                    <CalendarIcon size={16} className="mr-2 inline" />
-                    {language === 'en' ? 'My Bookings' : 'मेरी बुकिंग'}
-                  </NavbarButton>
-                  <NavbarButton
-                    onClick={() => {
-                      setIsMobileMenuOpen(false);
-                      router.push('/my-aartis');
-                    }}
-                    variant="outline"
-                    className="w-full border-sandalwood/30 text-deep-brown hover:bg-sandalwood/5">
-                    <VideoIcon size={16} className="mr-2 inline" />
-                    {t('nav.myAartis')}
-                  </NavbarButton>
-                  <button
-                    onClick={() => {
-                      setIsMobileMenuOpen(false);
-                      handleLogout();
-                    }}
-                    className="w-full px-4 py-2 bg-red-50 text-red-600 rounded-sm font-light hover:bg-red-100 transition-colors flex items-center justify-center">
-                    <LogOutIcon size={16} className="mr-2" />
-                    {t('nav.logout')}
-                  </button>
-                </>
-              ) : (
-                <NavbarButton
-                  onClick={() => {
-                    setIsMobileMenuOpen(false);
-                    router.push('/auth/login');
-                  }}
-                  variant="outline"
-                  className="w-full border-sandalwood/30 text-deep-brown hover:bg-sandalwood/5">
-                  <LogInIcon size={16} className="mr-2 inline" />
-                  {t('nav.login')}
-                </NavbarButton>
-              )}
             </div>
           </MobileNavMenu>
         </MobileNav>

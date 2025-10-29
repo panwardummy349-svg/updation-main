@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <Suspense fallback={<Loading />}>
-      <body className="relative md:overflow-x-hidden font-rubik">
+      <body className="relative  font-rubik">
         <LanguageProvider>
           {children}
         </LanguageProvider>
