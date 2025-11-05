@@ -4,7 +4,7 @@ import "./globals.css";
 import Loading from "./loading";
 import Head from "next/head";
 import { LanguageProvider } from "@/contexts/LanguageContext";
-import { Analytics } from "@vercel/analytics/next"
+// import { Analytics } from "@vercel/analytics/next"
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
 //   subsets: ["latin"],
