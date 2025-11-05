@@ -48,6 +48,7 @@ export default function Home() {
         <div className="absolute top-6 right-6 z-20">
           <LanguageSwitcher />
         </div>
+        
 
         <div className="relative grid md:grid-cols-2 min-h-[600px] md:min-h-[700px]">
           {/* Left: Content */}
